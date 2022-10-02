@@ -15,7 +15,7 @@ import PlusIcon from "../images/PlusIcon"
 import ExpanderIcon from "../images/ExpanderIcon"
 import {useDrop} from "react-dnd"
 
-const SheetAuthoring = ({dateNTimeText,setDateNTimeText,fieldTitleText,setFieldTitleText,checkListItem1,setCheckListItem1,checkListItem2,setCheckListItem2}) => {
+const SheetAuthoring = ({checkListItemId,setCheckListItemId,dateNTimeText,setDateNTimeText,fieldTitleText,setFieldTitleText,checkListItem1,setCheckListItem1,checkListItem2,setCheckListItem2}) => {
 const[showSecDelBtn,setShowSecDelBtn]=useState(false)
 const[showFieldTitleeDelBtn,setShowFieldTitleeDelBtn]=useState(false)
 const[showDateNTimeDelBtn,setShowDateNTimeDelBtn]=useState(false)
@@ -61,7 +61,7 @@ setCheckListItem1("Checklist Item 1")
 setFieldTitleText("Field Title")
 setFieldTitleeTextIsClick(false)
 setCheckListItemIsClick(false)
-setAddOptionIsClick(false)
+setCheckListItemId([])
 setIsExpanded(false)
 }
 function dateNTimeContDel(value){
@@ -72,6 +72,24 @@ function dateNTimeContDel(value){
   setShowDateNTimeDelBtn(false)
   setDateNTimeTextIsClick(false)
   setDateNTimeText("Field Title")
+}
+
+function handleAddOptionClick(){
+  const time=new Date().getTime()
+  setCheckListItemId((prev)=>{
+    return [...prev,{id:time,checkListItem:"Checklist Item"}]
+  })
+
+}
+
+function handleMinusIconClick(id){
+  console.log("click input id is " + id)
+ console.log(checkListItemId)
+ const newcheckListItemId=checkListItemId.filter((item)=>{
+  return item.id!==id;
+ })
+ console.log(newcheckListItemId)
+  setCheckListItemId(newcheckListItemId)
 }
 
   return (
@@ -115,10 +133,12 @@ function dateNTimeContDel(value){
             {showFieldTitleeDelBtn?<div onClick={()=>checkListDel(4)} className="field-titlee-del-btn"><DeleteButton /></div>:null}
           </div>
           <div className="field-titlee-input-cont">
-             <FieldTitleInput checkListItemIsClick={checkListItemIsClick} setCheckListItemIsClick={setCheckListItemIsClick} checkListItem={checkListItem1} setCheckListItem2={setCheckListItem2} setCheckListItem1={setCheckListItem1} /> 
-             <FieldTitleInput checkListItemIsClick={checkListItemIsClick} setCheckListItemIsClick={setCheckListItemIsClick} checkListItem={checkListItem2} /> 
-             {addOptionIsClick?<FieldTitleInput setAddOptionIsClick={setAddOptionIsClick} checkListItem={"Checklist Item"}/>:null}
-    <div style={{display:addOptionIsClick?"none":""}} onClick={()=>{setAddOptionIsClick(true)}} className='add-option-cont'><PlusIcon /><p className='add-option-text'>Add an Option</p></div>
+             <FieldTitleInput cursor={"no-drop"} checkListItemIsClick={checkListItemIsClick} setCheckListItemIsClick={setCheckListItemIsClick} checkListItem={checkListItem1} setCheckListItem2={setCheckListItem2} setCheckListItem1={setCheckListItem1} /> 
+             <FieldTitleInput cursor={"no-drop"} checkListItemIsClick={checkListItemIsClick} setCheckListItemIsClick={setCheckListItemIsClick} checkListItem={checkListItem2} />
+
+             {checkListItemId.map((item)=>{return <FieldTitleInput handleMinusIconClick={handleMinusIconClick} id={item.id} key={item.id} checkListItem={item.checkListItem}/>})} 
+
+    <div onClick={handleAddOptionClick} className='add-option-cont'><PlusIcon /><p className='add-option-text'>Add an Option</p></div>
             
     <div onClick={()=>{setIsExpanded(current=>!current)}} className='field-titlee-input-cont-expander'><ExpanderIcon /></div>
             </div>

@@ -20,6 +20,7 @@ const[displayCont,setDisplayCont]=useState(true)
 const[fieldTitleText,setFieldTitleText]=useState("Field Title ")
 const[checkListItem1,setCheckListItem1]=useState("Check List Item 1")
 const[checkListItem2,setCheckListItem2]=useState("Check List Item 2")
+const[checkListItemId,setCheckListItemId]=useState([])
 const[dateNTimeText,setDateNTimeText]=useState("Field Title")
 
   const[id,setId]=useState(4)
@@ -33,7 +34,7 @@ const[dateNTimeText,setDateNTimeText]=useState("Field Title")
       </div>:null}
       {authorNewSheetIsClicked?<NewSheetModal setAfsClick={setAfsClick} setCftClick={setCftClick} setAuthorNewSheetIsClicked={setAuthorNewSheetIsClicked} setSelectAsset={setSelectAsset} setSelectSubAsset={setSelectSubAsset}  />:null}
 {afsClick?<SheetDetailModal setDisplayCont={setDisplayCont} setAfsClick={setAfsClick} setStartAuthoringBtnClick={setStartAuthoringBtnClick} selectAsset={selectAsset} setSelectAsset={setSelectAsset} selectSubAsset={selectSubAsset} setSelectSubAsset={setSelectSubAsset} sheetName={sheetName} setSheetName={setSheetName} sheetDesc={sheetDesc} setSheetDesc={setSheetDesc} />:null}
-{startAuthoringBtnClick?<SheetAuthoring dateNTimeText={dateNTimeText} setDateNTimeText={setDateNTimeText} setCheckListItem2={setCheckListItem2} checkListItem2={checkListItem2} checkListItem1={checkListItem1} setCheckListItem1={setCheckListItem1} fieldTitleText={fieldTitleText} setFieldTitleText={setFieldTitleText} />:null}
+{startAuthoringBtnClick?<SheetAuthoring checkListItemId={checkListItemId} setCheckListItemId={setCheckListItemId} dateNTimeText={dateNTimeText} setDateNTimeText={setDateNTimeText} setCheckListItem2={setCheckListItem2} checkListItem2={checkListItem2} checkListItem1={checkListItem1} setCheckListItem1={setCheckListItem1} fieldTitleText={fieldTitleText} setFieldTitleText={setFieldTitleText} />:null}
 
       </section>
     </>

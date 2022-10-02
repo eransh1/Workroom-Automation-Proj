@@ -273,13 +273,12 @@ border: 1px solid #DADADA;
 border-radius: 11px;
 width: 100%;
 height: fit-content;
-padding-bottom: .5rem;
 position: relative;
 }
 .field-titlee-input-cont-expander{
 position: absolute;
 right: -5px;
-top: 3.2rem;
+top: 40%;
 cursor: pointer;
 }
 .add-option-cont{
