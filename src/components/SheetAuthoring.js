@@ -136,7 +136,7 @@ function handleMinusIconClick(id){
           <p className='no-canvas-image-text'>Drag and drop fields to the canvas</p>
         </div>:null}
 
-       {canvasId.includes(9)? <div className='section-input-cont'>
+       {canvasId.includes(9)? <div style={{zIndex:"5"}} className='section-input-cont'>
         <div onClick={()=>{setShowSecDelBtn(current=>!current)}} className='three-dots ms-auto'><ThreeDots /></div>
         {showSecDelBtn?<div onClick={()=>sectionInputContDel(9)} className="section-del-btn"><DeleteButton /></div>:null}
           <p className="section-input-text1">Section 01</p>
@@ -181,7 +181,7 @@ function handleMinusIconClick(id){
 </div>:null}
 
         </div>
-
+<div onClick={()=>{setchecklistBoxIsClick(false);setdNTBoxIsClick(false)}} className='clickable-cont'></div>
       </div>
       <div className="col-2 sheet-authoring-right-col">
       <div className='end-field-title'><ControlsIcon /><p className='field-title-text'>Controls</p></div>

@@ -461,4 +461,8 @@ margin-right: .5rem;
 .form-check {
     min-height: 20px;
 }
-
+.clickable-cont{
+    width: 100%;
+    background-color: transparent;
+    height: 220px;
+}
