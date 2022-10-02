@@ -32,6 +32,8 @@ function handleFinishAuthoringClick(){
   setStartAuthoringBtnClick(false)
   setDisplayCont(true)
   setId(4)
+  setSelectAsset("Select asset")
+  setSelectSubAsset("Select sub-asset")
   setSheetName("")
   setSheetDesc("")
   setCanvasId([])
