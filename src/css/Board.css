@@ -66,7 +66,41 @@ padding: 0;
   display: flex;
   align-items: flex-end;
 }
+.sheet-lib{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+}
+.sheet-lib-row{
+    background: #FFFFFF;
+    border: 1px solid #DADADA;
+    border-top-right-radius: 11px;
+    border-top-left-radius: 11px;
+    margin: 0;
+}
+.sheet-id{
+    border-top-left-radius: 11px;
+}
+.version{
+    border-top-right-radius: 11px;
+}
+.sheet-lib-title{
+    background: #FFFFFF;
+border: 1px solid #DADADA;
+height: 50px;
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
 
+color: #000000;
+display: flex;
+align-items: center;
+place-content: center;
+}
 .bottom-item-list{
     display: flex;
     align-items: center;

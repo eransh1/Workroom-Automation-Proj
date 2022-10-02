@@ -107,6 +107,8 @@ cursor: pointer;
 .sheet-authoring-row{
     margin: 0;
     min-height: 100vh;
+    justify-content: center;
+    display: flex;
 }
 .sheet-authoring-left-col,.sheet-authoring-right-col{
     padding: 0;
@@ -115,10 +117,11 @@ flex-direction: column;
 border: 1px solid #DADADA;   
 background-color: white;
 }
+
+/*                          LEFT COLUMN                             */
 .sheet-authoring-left-col{
 border-top-left-radius:12px ;
 border-bottom-left-radius: 12px;
-margin-left: 1.5rem;
 }
 .field-title{
     background: #FFFFFF;
@@ -253,7 +256,30 @@ font-weight: 700;
 font-size: 14px;
 line-height: 17px;
 color: #000000;}
-
+.star-and-trigger-cont{
+    display: flex;
+}
+.star{
+    font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+color: #009AFF;
+margin-left: .25rem;
+}
+.trigger{
+    display: flex;
+    font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+color: #7D7676;
+margin-left: 2rem;
+align-items: center;
+}
+.trigger-tic-con{
+    margin-left: .2rem;
+}
 .field-titlee-3-dots{
     position: absolute;
     right: 1rem;
@@ -286,6 +312,7 @@ cursor: pointer;
     display: flex;
     align-items: center;
     padding-left: 2rem;
+    width: fit-content;
 }
 .add-option-text{
     margin-left: .5rem;
@@ -376,3 +403,62 @@ font-size: 14px;
 line-height: 17px;
 color: #000000;
 }
+.control-field-text{
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+color: #7D7676;
+margin-top: .5rem;
+padding-left: .5rem;
+border-bottom: 1px solid #DADADA;
+display: flex;
+align-items: center;
+height: 30px;
+}
+.comp-phys-verf-cont,.prod-exp-date-cont{
+    display: flex;
+    flex-direction: column;
+}
+.comp-phys-verf-cont-text,.prod-exp-date-cont-text{
+    font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+height: 40px;
+border-bottom: 1px solid #DADADA;
+display: flex;
+margin-bottom: 0;
+padding-left: .5rem
+
+}
+.comp-phys-verf-cont-toggle-row,.prod-exp-date-cont-toggle-row{
+    border-bottom: 1px solid #DADADA;
+    height: 46px;
+}
+.comp-phys-verf-cont-toggle-left-col,.comp-phys-verf-cont-toggle-right-col,.prod-exp-date-cont-toggle-left-col,.prod-exp-date-cont-toggle-right-col{
+    display: flex;
+    align-items: center;
+}
+.req-text{
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+margin-top: 1rem;
+}
+.trigger-text{
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+margin-top: 1rem;
+margin-right: .5rem;
+}
+.form-check {
+    min-height: 20px;
+}
+

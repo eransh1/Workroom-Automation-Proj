@@ -14,19 +14,31 @@ import FieldTitleInput from './FieldTitleInput'
 import PlusIcon from "../images/PlusIcon"
 import ExpanderIcon from "../images/ExpanderIcon"
 import {useDrop} from "react-dnd"
+import TriggerTicIcon from "../images/TriggerTicIcon"
 
-const SheetAuthoring = ({checkListItemId,setCheckListItemId,dateNTimeText,setDateNTimeText,fieldTitleText,setFieldTitleText,checkListItem1,setCheckListItem1,checkListItem2,setCheckListItem2}) => {
+const SheetAuthoring = ({canvasId,setCanvasId,handleFinishAuthoringClick,checkListItemId,setCheckListItemId,dateNTimeText,setDateNTimeText,fieldTitleText,setFieldTitleText,checkListItem1,setCheckListItem1,checkListItem2,setCheckListItem2}) => {
 const[showSecDelBtn,setShowSecDelBtn]=useState(false)
 const[showFieldTitleeDelBtn,setShowFieldTitleeDelBtn]=useState(false)
 const[showDateNTimeDelBtn,setShowDateNTimeDelBtn]=useState(false)
 const[checkListItemIsClick,setCheckListItemIsClick]=useState(false)  
-const[addOptionIsClick,setAddOptionIsClick]=useState(false)
+
 const[isExpanded,setIsExpanded]=useState(false)
 const[dateNTimeTextIsClick,setDateNTimeTextIsClick]=useState(false)
+const[checklistBoxIsClick,setchecklistBoxIsClick]=useState(false)
+const[dNTBoxIsClick,setdNTBoxIsClick]=useState(false)
 
-const[canvasId,setCanvasId]=useState([])
+const[checklistReq,setChecklistReq]=useState(false)
+const[checklistTrigger,setChecklistTrigger]=useState(false)
+const[dateNTimeReq,setDateNTimeReq]=useState(false)
+const[dateNTimeTrigger,setDateNTimeTrigger]=useState(false)
+
+const[isChecklistTriggered,setisChecklistTriggered]=useState(false)
+const[isDNTTriggered,setisDNTTriggered]=useState(false)
+
+const[checklistCircleRadioBtnIsClick,setChecklistCircleRadioBtnIsClick]=useState(false)
+const[dNTCircleRadioBtnIsClick,setDNTCircleRadioBtnIsClick]=useState(false) 
 const[fieldTitleeTextIsClick,setFieldTitleeTextIsClick]=useState(false)
-console.log(canvasId)
+
   const[{isOver},drop]=useDrop(()=>({
     accept:"div",
     collect:(monitor)=>({
@@ -63,6 +75,11 @@ setFieldTitleeTextIsClick(false)
 setCheckListItemIsClick(false)
 setCheckListItemId([])
 setIsExpanded(false)
+setChecklistReq(false)
+setChecklistTrigger(false)
+setchecklistBoxIsClick(false)
+setChecklistCircleRadioBtnIsClick(false)
+setisChecklistTriggered(false)
 }
 function dateNTimeContDel(value){
   const newCanvasId=canvasId.filter((item)=>{
@@ -72,6 +89,11 @@ function dateNTimeContDel(value){
   setShowDateNTimeDelBtn(false)
   setDateNTimeTextIsClick(false)
   setDateNTimeText("Field Title")
+  setdNTBoxIsClick(false)
+  setDateNTimeReq(false)
+setDateNTimeTrigger(false)
+setDNTCircleRadioBtnIsClick(false)
+setisDNTTriggered(false)
 }
 
 function handleAddOptionClick(){
@@ -83,12 +105,9 @@ function handleAddOptionClick(){
 }
 
 function handleMinusIconClick(id){
-  console.log("click input id is " + id)
- console.log(checkListItemId)
  const newcheckListItemId=checkListItemId.filter((item)=>{
   return item.id!==id;
  })
- console.log(newcheckListItemId)
   setCheckListItemId(newcheckListItemId)
 }
 
@@ -100,7 +119,7 @@ function handleMinusIconClick(id){
       <div className="sheet-authoring-title-button"><NewSheetDetailIcon /><p className='sheet-button-text'>First Piece CTQ : Tube Press Up</p></div>
       <div className='authoring-button ms-auto'>Authoring</div>
       <div className="preview-button">Preview</div>
-      <div className='finish-authoring-button'>Finish Authoring</div>
+      <div onClick={handleFinishAuthoringClick} className='finish-authoring-button'>Finish Authoring</div>
     </div>
 
     <div className='row sheet-authoring-row'>
@@ -129,10 +148,14 @@ function handleMinusIconClick(id){
         {canvasId.includes(4)?<div style={{width:isExpanded?"95%":"48%"}} className='field-titlee'>
           <div className='field-title-topp'>
             <p onClick={()=>{setFieldTitleText("Component Physical Verification");setFieldTitleeTextIsClick(true)}} className={fieldTitleeTextIsClick?"field-title-topp-text-click":'field-title-topp-text'}>{fieldTitleText}</p>
+            <div className='star-and-trigger-cont'>
+              {checklistReq?<p className='star'>*</p>:null}
+              {checklistTrigger?<p className='trigger'>Trigger :  <div className='trigger-tic-con'><TriggerTicIcon /></div></p>:null}
+            </div>
             <div onClick={()=>{setShowFieldTitleeDelBtn(current=>!current)}} className='field-titlee-3-dots'><ThreeDots /></div>
             {showFieldTitleeDelBtn?<div onClick={()=>checkListDel(4)} className="field-titlee-del-btn"><DeleteButton /></div>:null}
           </div>
-          <div className="field-titlee-input-cont">
+          <div onClick={()=>{setchecklistBoxIsClick(true);setdNTBoxIsClick(false)}} className="field-titlee-input-cont">
              <FieldTitleInput cursor={"no-drop"} checkListItemIsClick={checkListItemIsClick} setCheckListItemIsClick={setCheckListItemIsClick} checkListItem={checkListItem1} setCheckListItem2={setCheckListItem2} setCheckListItem1={setCheckListItem1} /> 
              <FieldTitleInput cursor={"no-drop"} checkListItemIsClick={checkListItemIsClick} setCheckListItemIsClick={setCheckListItemIsClick} checkListItem={checkListItem2} />
 
@@ -147,10 +170,14 @@ function handleMinusIconClick(id){
 {canvasId.includes(5)?<div className='date-time-conttt'>
   <div className='date-time-cont-top'>
     <p onClick={()=>{setDateNTimeTextIsClick(true);setDateNTimeText("Select product expiry date")}} className={dateNTimeTextIsClick?"date-time-cont-top-text-click":'date-time-cont-top-text'}>{dateNTimeText}</p>
+    <div className='star-and-trigger-cont'>
+              {dateNTimeReq?<p className='star'>*</p>:null}
+             {dateNTimeTrigger?<p className='trigger'>Trigger :  <div className='trigger-tic-con'><TriggerTicIcon /></div></p>:null}
+            </div>
     <div onClick={()=>{setShowDateNTimeDelBtn(current=>!current)}} className='date-time-cont-three-dotss'><ThreeDots /></div>
     {showDateNTimeDelBtn?<div onClick={()=>dateNTimeContDel(5)} className='data-time-del-btn'><DeleteButton /></div>:null}
   </div>
-  <div className='date-picker'>integrate date picker (dd/mm/yyyy)</div>
+  <div onClick={()=>{setchecklistBoxIsClick(false);setdNTBoxIsClick(true)}} className='date-picker'>integrate date picker (dd/mm/yyyy)</div>
 </div>:null}
 
         </div>
@@ -158,6 +185,40 @@ function handleMinusIconClick(id){
       </div>
       <div className="col-2 sheet-authoring-right-col">
       <div className='end-field-title'><ControlsIcon /><p className='field-title-text'>Controls</p></div>
+      {checklistBoxIsClick||dNTBoxIsClick?<p className='control-field-text'>Field: <span style={{color:"black",fontWeight:"700"}}>Checklist</span></p>:null}
+      <div style={{display:checklistBoxIsClick?"block":"none"}} className='comp-phys-verf-cont'>
+<p className='comp-phys-verf-cont-text'>{fieldTitleText}</p>
+<div style={{margin:"0"}} className='row comp-phys-verf-cont-toggle-row'>
+  <div style={{padding:"0"}} className="col-6 comp-phys-verf-cont-toggle-left-col">
+  <div onClick={()=>{setChecklistCircleRadioBtnIsClick(current=>!current);setChecklistReq(current=>!current)}} className='circlee'>{checklistCircleRadioBtnIsClick?<div className='circle-color'></div>:null}</div>
+  <p className='req-text'>Required</p>
+  </div>
+  <div style={{padding:"0"}} className="col-6 comp-phys-verf-cont-toggle-right-col">
+    <p className='trigger-text'>Trigger</p>
+
+    <div class="form-check form-switch">
+  <input onClick={()=>{setChecklistTrigger(current=>!current);setisChecklistTriggered(current=>!current)}} class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={isChecklistTriggered}/>
+</div>
+
+  </div>
+</div>
+      </div>
+     <div style={{display:dNTBoxIsClick?"block":"none"}} className='prod-exp-date-cont'>
+      <p className='prod-exp-date-cont-text'>{dateNTimeText}</p>
+<div style={{margin:"0"}} className='row prod-exp-date-cont-toggle-row'>
+  <div style={{padding:"0"}} className="col-6 prod-exp-date-cont-toggle-left-col">
+  <div onClick={()=>{setDNTCircleRadioBtnIsClick(current=>!current);setDateNTimeReq(current=>!current)}} className='circlee'>{dNTCircleRadioBtnIsClick?<div className='circle-color'></div>:null}</div>
+  <p className='req-text'>Required</p>
+  </div>
+  <div style={{padding:"0"}} className="col-6 comp-phys-verf-cont-toggle-right-col">
+    <p className='trigger-text'>Trigger</p>
+
+    <div class="form-check form-switch">
+  <input onClick={()=>{setDateNTimeTrigger(current=>!current);setisDNTTriggered(current=>!current)}} class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultt" checked={isDNTTriggered}/>
+</div>
+  </div>
+</div>
+      </div>
       </div>
     </div>
     </>

@@ -1,0 +1,18 @@
+.sheet-libb-row{
+    background: #FFFFFF;
+    border: 1px solid #DADADA;
+    margin: 0;
+}
+.sheet-lib-item{
+    background: #FFFFFF;
+border: 1px solid #DADADA;
+height: 50px;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+display: flex;
+align-items: center;
+place-content: center;
+}

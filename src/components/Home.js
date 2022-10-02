@@ -22,20 +22,43 @@ const[checkListItem1,setCheckListItem1]=useState("Check List Item 1")
 const[checkListItem2,setCheckListItem2]=useState("Check List Item 2")
 const[checkListItemId,setCheckListItemId]=useState([])
 const[dateNTimeText,setDateNTimeText]=useState("Field Title")
+const[sheetLibraryList,setSheetLibraryList]=useState([])
+const[canvasId,setCanvasId]=useState([])
 
   const[id,setId]=useState(4)
+  
+function handleFinishAuthoringClick(){
+
+  setStartAuthoringBtnClick(false)
+  setDisplayCont(true)
+  setId(4)
+  setSheetName("")
+  setSheetDesc("")
+  setCanvasId([])
+  setSheetLibraryList((prev)=>{ 
+    return [...prev,{id:new Date().getTime(),sheetName:sheetName,selectAsset:selectAsset,selectSubAsset:selectSubAsset,steps:canvasId.length}]  
+    
+  })
+}
+
+function handleSheetIdClick(id){
+  const newSheetLibraryList=sheetLibraryList.filter((item)=>{
+   return item.id!==id;
+  })
+  setSheetLibraryList(newSheetLibraryList)
+}
+
   return (
     <>
     <section id='home'>
       <Navbar />
       {displayCont?<div className='display-cont'>
       <Sidebar id={id} setId={setId} />
-      {id===4?<Board setId={setId} selectAsset={selectAsset} setSelectAsset={setSelectAsset} selectSubAsset={selectSubAsset} setSelectSubAsset={setSelectSubAsset} setAuthorNewSheetIsClicked={setAuthorNewSheetIsClicked} />:null}
+      {id===4?<Board handleSheetIdClick={handleSheetIdClick} sheetLibraryList={sheetLibraryList} setId={setId} selectAsset={selectAsset} setSelectAsset={setSelectAsset} selectSubAsset={selectSubAsset} setSelectSubAsset={setSelectSubAsset} setAuthorNewSheetIsClicked={setAuthorNewSheetIsClicked} />:null}
       </div>:null}
       {authorNewSheetIsClicked?<NewSheetModal setAfsClick={setAfsClick} setCftClick={setCftClick} setAuthorNewSheetIsClicked={setAuthorNewSheetIsClicked} setSelectAsset={setSelectAsset} setSelectSubAsset={setSelectSubAsset}  />:null}
 {afsClick?<SheetDetailModal setDisplayCont={setDisplayCont} setAfsClick={setAfsClick} setStartAuthoringBtnClick={setStartAuthoringBtnClick} selectAsset={selectAsset} setSelectAsset={setSelectAsset} selectSubAsset={selectSubAsset} setSelectSubAsset={setSelectSubAsset} sheetName={sheetName} setSheetName={setSheetName} sheetDesc={sheetDesc} setSheetDesc={setSheetDesc} />:null}
-{startAuthoringBtnClick?<SheetAuthoring checkListItemId={checkListItemId} setCheckListItemId={setCheckListItemId} dateNTimeText={dateNTimeText} setDateNTimeText={setDateNTimeText} setCheckListItem2={setCheckListItem2} checkListItem2={checkListItem2} checkListItem1={checkListItem1} setCheckListItem1={setCheckListItem1} fieldTitleText={fieldTitleText} setFieldTitleText={setFieldTitleText} />:null}
-
+{startAuthoringBtnClick?<SheetAuthoring canvasId={canvasId} setCanvasId={setCanvasId} handleFinishAuthoringClick={handleFinishAuthoringClick} checkListItemId={checkListItemId} setCheckListItemId={setCheckListItemId} dateNTimeText={dateNTimeText} setDateNTimeText={setDateNTimeText} setCheckListItem2={setCheckListItem2} checkListItem2={checkListItem2} checkListItem1={checkListItem1} setCheckListItem1={setCheckListItem1} fieldTitleText={fieldTitleText} setFieldTitleText={setFieldTitleText} />:null}
       </section>
     </>
   )
