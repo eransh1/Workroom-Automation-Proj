@@ -1,0 +1,379 @@
+body{font-family: "roboto";}
+.top-sheet-authoring{
+    display: flex;
+    align-items: center;
+    margin-top: 1.3rem;
+    margin-bottom: 1.3rem;
+}
+.back-button{
+    background: #FFFFFF;
+border: 1px solid #DADADA;
+border-radius: 11px;
+width: 38px;
+height: 50px;
+display: flex;
+align-items: center;
+place-content: center;
+margin-left: 1.5rem;
+}
+.sheet-button{
+    display: flex;
+    align-items: center;
+    place-content: center;
+    width: 101px;
+height: 50px;
+background: #FFFFFF;
+border: 1px solid #DADADA;
+border-radius: 11px;
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+margin-left: 1rem;
+}
+.sheet-button-text{
+    margin-top: 1rem;
+    margin-left: .5rem;
+}
+.sheet-authoring-title-button{
+    background: rgba(208, 235, 255, 0.35);
+border: 1px solid #009AFF;
+border-radius: 11px;
+width: 252px;
+height: 51px;
+display: flex;
+align-items: center;
+place-content: center;
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+text-decoration-line: underline;
+color: #000000;
+margin-left: 1.5rem;
+}
+.authoring-button{
+    background: #D0EBFF;
+border: 1px solid #009AFF;
+width: 131px;
+height: 50px;
+display: flex;
+align-items: center;
+place-content: center;
+border-top-left-radius: 11px;
+border-bottom-left-radius: 11px;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+}
+.preview-button{
+    background: #FFFFFF;
+border: 1px solid #DADADA;
+width: 131px;
+height: 50px;
+display: flex;
+align-items: center;
+place-content: center;
+border-top-right-radius: 11px;
+border-bottom-right-radius: 11px;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+}
+.finish-authoring-button{
+    font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+color: #FFFFFF;
+background: linear-gradient(90deg, #00C6FB 0%, #005BEA 100%);
+border: 1px solid #DADADA;
+border-radius: 11px;
+width: 137px;
+height: 50px;
+display: flex;
+align-items: center;
+place-content: center;
+margin-left: 1rem;
+margin-right: 1.5rem;
+cursor: pointer;
+}
+
+.sheet-authoring-row{
+    margin: 0;
+    min-height: 100vh;
+}
+.sheet-authoring-left-col,.sheet-authoring-right-col{
+    padding: 0;
+    display: flex;
+flex-direction: column; 
+border: 1px solid #DADADA;   
+background-color: white;
+}
+.sheet-authoring-left-col{
+border-top-left-radius:12px ;
+border-bottom-left-radius: 12px;
+margin-left: 1.5rem;
+}
+.field-title{
+    background: #FFFFFF;
+border: 1px solid #DADADA;
+border-right: none;
+width: 100%;
+height: 50px;
+border-top-left-radius: 12px;
+display: flex;
+align-items: center;
+place-content: center;
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+}
+.field-title-text{
+    margin-top: 1rem;
+    margin-left: .5rem;
+}
+
+/*                              MIDDLE COLUMN                        */
+.sheet-authoring-middle-col{
+    padding: 0;
+    border: 1px solid #DADADA; 
+    background-color: white;
+}
+.middle-field-title{
+    background: #FFFFFF;
+    border: 1px solid #DADADA;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    place-content: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000; 
+}
+
+.no-canvas-image{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    place-content: center;
+    margin-top: 6rem;
+}
+.no-canvas-image-text{
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+color: #7D7676;
+margin-top: 1.5rem;
+}
+
+.section-input-cont{
+    display: flex;
+    flex-direction: column;
+    background: rgba(208, 235, 255, 0.65);
+border: 1px solid #DADADA;
+width: 100%;
+height: 100px;
+padding-left: 1.5rem;
+position: relative;
+}
+.three-dots{
+position: absolute;
+right: 1rem;
+cursor: pointer;
+}
+.section-del-btn{
+    position: absolute;
+    right: .2rem;
+    top: 1.3rem;
+    cursor: pointer;
+}
+
+.section-input-text1{
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+color: #7D7676;
+margin-top: .5rem;
+}
+.section-input-text2{
+    font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+}
+.section-input-text3{
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+}
+
+
+.field-titlee{
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+    width: 50%;
+    
+}
+.field-title-topp{
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+.field-title-topp-text{
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+color: #000000;
+cursor: pointer;
+}
+.field-title-topp-text-click{
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+color: #000000;}
+
+.field-titlee-3-dots{
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+}
+.field-titlee-del-btn{
+    position: absolute;
+    right: .2rem;
+    top: 1.3rem;
+    cursor: pointer;
+    z-index: 1;
+    
+}
+.field-titlee-input-cont{
+    background: #F7F8FA;
+border: 1px solid #DADADA;
+border-radius: 11px;
+width: 100%;
+height: fit-content;
+padding-bottom: .5rem;
+position: relative;
+}
+.field-titlee-input-cont-expander{
+position: absolute;
+right: -5px;
+top: 3.2rem;
+cursor: pointer;
+}
+.add-option-cont{
+    background: transparent;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+}
+.add-option-text{
+    margin-left: .5rem;
+    margin-top: 1rem;
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+cursor: pointer;
+}
+.date-time-conttt{
+display: flex;
+flex-direction: column;
+width: 46%;
+margin-top: 1.5rem;
+margin-left: 1.8rem;
+}
+.date-time-cont-top{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+.date-time-cont-top-text{
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+cursor: pointer;
+}
+.date-time-cont-top-text-click{
+    font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+}
+.date-time-cont-three-dotss{
+position: absolute;
+right: 1rem;
+cursor: pointer;
+}
+.data-time-del-btn{
+    position: absolute;
+    right: .5rem;
+    top: 2rem;
+    z-index: 1;
+    cursor: pointer;
+}
+.date-picker{
+    background: #F7F8FA;
+border: 1px solid #DADADA;
+border-radius: 11px;
+height: 140px;
+width: 96%;
+display: flex;
+align-items: center;
+place-content: center;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+color: #7D7676;
+}
+
+/*                          RIGHT COLUMN                            */
+.sheet-authoring-right-col{
+    border-top-right-radius:12px ;
+    border-bottom-right-radius: 12px;
+    
+}
+.end-field-title{
+    background: #FFFFFF;
+border: 1px solid #DADADA;
+border-left: none;
+width: 100%;
+height: 50px;
+border-top-right-radius: 12px;
+display: flex;
+align-items: center;
+place-content: center;
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+}

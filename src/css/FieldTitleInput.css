@@ -1,0 +1,53 @@
+.field-title-inp{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: .5rem;
+}
+.circlee{
+    background: #FFFFFF;
+border: 1px solid #DADADA;
+width: 16px;
+height: 16px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+place-content: center;
+justify-content: center;
+margin-left: .5rem;
+margin-right: .5rem;
+cursor: pointer;
+}
+.circle-color{
+    background:#009AFF;
+    border:1px solid #DADADA;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+.field-titlee-input-box{
+    background: #FFFFFF;
+border: 1px solid #DADADA;
+border-radius: 11px;
+height: 33px;
+width: 90%;
+position: relative;
+display: flex;
+align-items: center;
+padding-left: 1rem;
+margin-right: .5rem;
+cursor: pointer;
+}
+.field-titlee-input-box-text{
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+color: #7D7676;
+margin-top: 1rem;
+}
+
+.minus-icon{
+    cursor: pointer;
+    margin-right: 1.5rem;
+}

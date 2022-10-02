@@ -1,0 +1,119 @@
+.select-asset-cont{
+    position: relative;
+    margin-left: 2.5rem;
+ 
+}
+#select-asset{
+    background: #FFFFFF;
+border: 1px solid #DADADA;
+border-radius: 11px;
+width: 261px;
+height: 50px;
+padding-left: 1rem;
+cursor: pointer;
+
+
+}
+#select-asset:focus{
+    outline: none;
+}
+.select-asset-text{
+    position: absolute;
+    font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+font-style: italic;
+color: #7D7676;
+left: 1rem;
+top: 1rem;
+cursor: pointer;
+
+
+}
+.down-arrow{
+    position: absolute;
+    right: 1rem;
+    top: .8rem;
+ 
+}
+.select-asset-type-cont{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2.5rem;
+}
+.hdl-type{
+    background-color: white;
+border: 1px solid #DADADA;
+width: 261px;
+height: 52px;
+border-top-left-radius:11px ;
+border-top-right-radius:11px ;
+display: flex;
+align-items: center;
+padding-left: 1rem;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+}
+.hdl-type:hover{
+    background-color: #D0EBFF;
+}
+.ldl-type{
+    background: white;
+    border: 1px solid #DADADA;
+    width: 261px;
+    height: 52px;
+    border-bottom-left-radius:11px ;
+    border-bottom-right-radius:11px ;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+.ldl-type:hover{
+    background-color: #D0EBFF;
+}
+.selected-type{
+    background-color: #D0EBFF ;
+}
+
+@media(max-width:890px){
+   .select-asset-cont{
+    margin-left: 1rem;
+   } 
+   #select-asset,.hdl-type,.ldl-type{
+    width: 200px;
+}
+.select-asset-type-cont{
+    margin-left: 1rem;
+}
+}
+
+
+@media(max-width:745px){
+    #select-asset,.hdl-type,.ldl-type{
+width: 170px;
+
+    }
+    .select-asset-cont,.select-asset-type-cont{
+       margin-left: 1rem;
+     
+    }
+}
+
+@media(max-width:680px){
+    #select-asset,.hdl-type,.ldl-type{
+        width: 220px;
+        
+            }
+}
+@media(max-width:581px){
+    #select-asset,.hdl-type,.ldl-type{
+        width: 170px;
+        
+            }
+}

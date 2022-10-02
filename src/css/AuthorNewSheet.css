@@ -1,0 +1,37 @@
+.button-for-new-sheet{
+    background: linear-gradient(90deg, rgba(0, 198, 251, 0.9) 0%, rgba(0, 91, 234, 0.9) 100%);
+border: 1px solid #DADADA;
+border-radius: 11px;
+width: 170px;
+height: 52px;
+display: flex;
+align-items: center;
+padding-left: .5rem;
+margin-bottom: .5rem;
+cursor: pointer;
+}
+.new-sheet-text{
+    font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+color: #FFFFFF;
+margin-top: 1rem;
+margin-left: .5rem;
+}
+.author-new-sheet{
+    margin-right: 1rem;
+}
+
+@media(max-width:680px){
+    .author-new-sheet{
+        position: absolute;
+        bottom:-5rem ;
+        left: 10rem;
+    }
+}
+@media(max-width:581px){
+    .author-new-sheet{
+        left: 7rem;
+    }
+}
